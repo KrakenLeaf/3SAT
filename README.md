@@ -69,13 +69,13 @@
 	2. DrawCovGauss.m - Generates the weighting matrix for each frame. 
 	
 	'BubbleTracking\':
-		'MHT\': Third party of the MHT algorithm (Lisbon implementation)
- 	1. KalmanCreateMatrixModel.m - Kalman filter tracking models.
-	2. KalmanFlow.m 			 - Kalman innovation.
-	3. KalmanPropagator.m 		 - Applies Kalman filter propagation equations. 
-	4. MHT_init.m 				 - Initialize the MHT algorithm.
-	5. MHT_track_frame.m 	     - Performs tracking of detected MBs in a frame.
-	6. TrackManager.m 		     - Main file for tracking and managing MB tracks.
+	1.'MHT\': Third party of the MHT algorithm (Lisbon implementation)
+ 	2. KalmanCreateMatrixModel.m - Kalman filter tracking models.
+	3. KalmanFlow.m 			 - Kalman innovation.
+	4. KalmanPropagator.m 		 - Applies Kalman filter propagation equations. 
+	5. MHT_init.m 				 - Initialize the MHT algorithm.
+	6. MHT_track_frame.m 	     - Performs tracking of detected MBs in a frame.
+	7. TrackManager.m 		     - Main file for tracking and managing MB tracks.
 	
 	
 	'OF\':
@@ -128,7 +128,7 @@
 7. Download
 
 	The code is available at http://webee.technion.ac.il/Sites/People/YoninaEldar/software.php
-	and on GitHub: 
+	and on GitHub: https://github.com/KrakenLeaf/3SAT
 
 
 8. Trademarks
