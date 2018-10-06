@@ -1,0 +1,77 @@
+% 											General parameters 											 %
+% --------------------------------------------------------------------------------------------------------
+MovieFolder = 'Example';                                                                      % Data folder
+InputName   = 'Patch_Nb140'; 																			 % Movie name
+DataType    = 'mat';   																					 % Type of movie - currently only MAT file is supported
+SaveFolder  = 'Results';
+
+General_Params.StartNumFrames = 1;
+General_Params.MaxNumFrames   = -1; 
+
+
+% 							  		Physical acquisition parameters 									 %
+% --------------------------------------------------------------------------------------------------------
+Acq_Params.FrameRate  = 10;          																	 % US movie frame-rate [Hz]
+Acq_Params.PixelSizes = 0.15*[1 1]; 																     % US movie pixel size (x, z) [mm]
+
+
+% 										  Tracker parameters 										     %
+% --------------------------------------------------------------------------------------------------------
+Tracker_Params.maxNumLeaves   = 6; 15; 6;   																 % int maxNumLeaves
+Tracker_Params.maxDepth       = 6; 15; 6;    																 % int maxDepth
+Tracker_Params.timeUndetected = 2; 0;   																	 % int timeUndetected      - Time in frames to close a track if no measurement was associated to it
+Tracker_Params.bestK          = 6; 15; 6;    																 % int bestK
+Tracker_Params.probUndetected = 0.1; 0.00001; 0.1;  														     % double probUndetected   - Probability for not detecting a bubble which exists
+Tracker_Params.probNewTarget  = 0.05; 0.1; 0.05; 0.1;  														     % double probNewTarget    - Probability for a new target to appear
+Tracker_Params.probFalseAlarm = 0.01; 0.01; 0.01; 															 % double probFalseAlarm   - Probability of false alarm (detection while there is no taget)
+Tracker_Params.gateSize       = 15; 5; 30; 5; 50; 10; 20;
+
+Tracker_Params.KF.dT          = 0.1;      														     	 % In frames, thast is if dT = 1 then the next measurement is in the next frame
+Tracker_Params.KF.Trate       = 20; 100;     															     % Number of extrapolation points between each dT
+Tracker_Params.KF.MaxVel      = 30;   														  		 % Maximum allowed velocity - [pixels/dT]
+Tracker_Params.KF.MaxAcc      = 10; 20;   																 % Maximum allowed acceleration - [pixels/dT^2]
+Tracker_Params.KF.UseVel      = 1;    																     % 1 - use velocities in the filtering process
+Tracker_Params.KF.ModelType   = 2;    															   	     % 1 - [Pos, Vel, Acc], 2 - [Pos, Vel]
+Tracker_Params.KF.Q    	      = diag([.001 .0001 .001 .001 .0001 .001]); 								 % Model covariance matrix
+Tracker_Params.KF.R 		  = diag([0.1 1 0.1 1]); 													 % Measurement covariance matrix
+Tracker_Params.KF.rho 		  = 150; 200; 100; 50; 300; 500;                                                     % Higher number = less reliance on the model and more on the measurements
+
+% 										Optical flow parameters 										 %
+% --------------------------------------------------------------------------------------------------------
+OF_params.Method              = 'lkdog';
+OF_params.BurnIn              = 1;
+OF_params.lk_NoiseThreshold   = 0.009;
+OF_params.UniformIntensity    = 1;      																 % 1 - Binarize intensities of SR frame and convolve with a Gaussian
+
+
+% 							   Sparse recovery parameters parameters   									 %
+% --------------------------------------------------------------------------------------------------------
+% Solver type
+%SR_params.SolverType = 'fista';
+SR_params.SolverType = 'fista_iterative';
+
+% SR solver parameters
+SR_params.SRF        = 2;          																		 % Super resolution factor
+SR_params.Beta       = 1-1e-7;
+SR_params.L0         = [];         																		 % Lipschitz constant
+SR_params.Eps        = 100; 1e20; 0.5; 100; 10;       																	     % Weighting matrix numerical regularization - very small value = no detections. Very high velue = many detections [0.1 - 1]
+SR_params.Lambda     = 0.005; 0.01; 0.035;            															     % l_1 regularization
+SR_params.N          = [];         																	     % Length of x
+SR_params.IterMax    = 1000; 500;
+SR_params.NonNegOrth = 1;
+SR_params.FlowFlag   = 1;          															 			 % 1 - Use velocities in the SR process 
+SR_params.LambdaBar  = 1e-7;
+
+% FISTA Iterative
+SR_params.Iterative.NumOfSteps = 4;
+SR_params.Iterative.Eps        = 0.5; 																 	 % Lower value = sparser solutions
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+According to the JUNG project page, on the sourceforge.net web-site [1] the project is licensed under the BSD License.
+
+	[1] - http://sourceforge.net/projects/jung/, acceded on Sunday, April 24 2011.
+
