@@ -69,7 +69,7 @@
 	2. DrawCovGauss.m - Generates the weighting matrix for each frame. 
 	
 	'BubbleTracking\':
-		'MHT\': Third party of the MHT algorithm (Lisbon implementation)
+		'MHT\': Third party code for of the MHT algorithm (Lisbon implementation)
  	1. KalmanCreateMatrixModel.m - Kalman filter tracking models.
 	2. KalmanFlow.m 			 - Kalman innovation.
 	3. KalmanPropagator.m 		 - Applies Kalman filter propagation equations. 
@@ -129,7 +129,10 @@
 
 	The code is available at http://webee.technion.ac.il/Sites/People/YoninaEldar/software.php
 	and on GitHub: https://github.com/KrakenLeaf/3SAT
-
+	
+	MHT code can be found on: http://www.multiplehypothesis.com/
+	1) D. M. Antunes, D. M. de Matos, and J. Gaspar, “A library for implementing the multiple hypothesis tracking algorithm,” arXiv preprint arXiv:1106.2263, 2011.
+	2) D. M. Antunes, D. Figueira, D. M. Matos, A. Bernardino, and J. Gaspar, “Multiple hypothesis tracking in camera networks,” in Computer Vision Workshops (ICCV Workshops), 2011 IEEE International Conference on. IEEE, 2011, pp. 367–374.
 
 8. Trademarks
 
